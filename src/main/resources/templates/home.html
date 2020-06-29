@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+
+<!--<form action="#" th:object ="{newMessage}" th:action ="@{'/home'}" method = "POST" >
+
+<label for="newMessageText">Submit a message</label>
+    <input type ="text" id="newMessageText" name ="newMessageText" th:field =*{text}>
+    <input type = "submit">
+</form>-->
+
+<!--<form action="#" th:object="${newMessage}" method="POST" th:action="@{'/home'}">
+    <label for="newMessageText">Submit a new message: </label>
+    <input type="text" id="newMessageText" name="newMessageText" th:field="*{text}">
+    <input type="submit">
+</form>-->
+
+<!--
+<form action="#" th:object="${newMessage}" method="GET" th:action="@{'/delete'}">
+    <label for="deleteMessageText">Delete a message: </label>
+    <input type="text" id="deleteMessageText" name="deleteMessageText" th:field="*{text}">
+    <input type="submit">
+</form>
+-->
+<form action="#" th:object="${newMessage}" method="POST" th:action="@{'/animal'}">
+    <label for="animalText"> Enter name of animal</label>
+    <input type="text" id="animalText" name="animalText" th:field ="*{text}">
+    <label for="adjective">Enter animal adjective</label>
+    <input type="text" id ="adjective" th:field ="*{adjective}">
+    <input type="submit">
+</form>
+
+<!--<h1 th:each="text: ${messageList}" th:text ="${text}" th:unless ="${messageList.size()<=5}"> Message List is :-</h1>
+
+<h1 th:each="text: ${messageList}" th:text ="${adjective}"> Adjective is </h1>-->
+<h1 th:unless="${#lists.size(messageList) > 5}" th:each="msg : ${messageList}" th:text="${msg}">Hello, homepage!</h1>
+<h1 th:if="${#lists.size(messageList) > 5}">I think that's enough!</h1>
+</body>
+</html>
